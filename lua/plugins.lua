@@ -79,4 +79,13 @@ require("lazy").setup({
 			require("config.gitsigns")
 		end,
 	},
+
+	-- Status line
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("config.lualine")
+		end,
+	},
 })
