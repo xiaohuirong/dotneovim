@@ -10,7 +10,7 @@ vim.keymap.set("n", "<leader>fc", function() -- fc = find by command
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
-require("telescope").setup{
+require("telescope").setup({
 	defaults = {
 		layout_strategy = "vertical",
 		layout_config = {
@@ -26,7 +26,7 @@ require("telescope").setup{
 			-- the default case_mode is "smart_case"
 		},
 	},
-}
+})
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("fzf")

@@ -153,6 +153,17 @@ require("lazy").setup({
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
 	},
 
+	-- multi tab support
+	-- {
+	-- 	"akinsho/bufferline.nvim",
+	-- 	version = "*",
+	-- 	dependencies = "nvim-tree/nvim-web-devicons",
+	--
+	-- 	config = function()
+	-- 		require("config.bufferline")
+	-- 	end,
+	-- },
+
 	{
 		"folke/trouble.nvim",
 		branch = "dev",
