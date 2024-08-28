@@ -127,4 +127,23 @@ require("lazy").setup({
 			require("config.toggleterm")
 		end,
 	},
+
+	-- Treesitter-integration
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("config.nvim-treesitter")
+		end,
+	},
+
+	-- Fuzzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("config.telescope")
+		end,
+	},
 })
