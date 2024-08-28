@@ -118,4 +118,13 @@ require("lazy").setup({
 			require("leap").create_default_mappings()
 		end,
 	},
+
+	-- Better terminal integration
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = function()
+			require("config.toggleterm")
+		end,
+	},
 })
