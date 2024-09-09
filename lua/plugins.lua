@@ -31,11 +31,18 @@ require("lazy").setup({
 			require("config.nvim-cmp")
 		end,
 	},
+
 	-- Code snippet engine
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+		config = function()
+			require("config.luasnip")
+		end,
 	},
+
 	"tanvirtin/monokai.nvim",
 	-- Better UI
 	-- Run `:checkhealth noice` to check for common issues
