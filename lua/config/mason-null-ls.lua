@@ -24,6 +24,8 @@ mason_null_ls.setup({
 		"black",
 		"stylua",
 		"clang-format",
+		"shellharden",
+		"shfmt",
 	},
 	-- Run `require("null-ls").setup`.
 	-- Will automatically install masons tools based on selected sources in `null-ls`.
@@ -46,6 +48,12 @@ mason_null_ls.setup({
 		end,
 		rubyformat = function(source_name, methods)
 			null_ls.register(null_ls.builtins.formatting.rubyfmt)
+		end,
+		shellharden = function(source_name, methods)
+			null_ls.register(null_ls.builtins.formatting.shellharden)
+		end,
+		shfmt = function(source_name, methods)
+			null_ls.register(null_ls.builtins.formatting.shfmt)
 		end,
 		clangformat = function(source_name, methods)
 			null_ls.register(null_ls.builtins.formatting.clang_format)
