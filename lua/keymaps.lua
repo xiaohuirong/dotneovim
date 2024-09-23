@@ -35,9 +35,9 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
-vim.keymap.set("n", "s", "<Plug>(leap-forward)")
-vim.keymap.set("n", "S", "<Plug>(leap-backward)")
-vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
+-- vim.keymap.set("n", "s", "<Plug>(leap-forward)")
+-- vim.keymap.set("n", "S", "<Plug>(leap-backward)")
+-- vim.keymap.set("n", "gs", "<Plug>(leap-from-window)")
 
 -- -- BufferLine
 -- vim.keymap.set("n", "<space>q", "<CMD>BufferLinePickClose<CR>")
