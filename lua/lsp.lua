@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
 			async = true,
 			-- Only request null-ls for formatting
 			filter = function(client)
-				return client.name == "null-ls"
+				return client.name == "null-ls" or client.name == "rust_analyzer"
 			end,
 		})
 	end, bufopts)
