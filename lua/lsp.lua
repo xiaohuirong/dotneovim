@@ -59,6 +59,7 @@ local on_attach = function(client, bufnr)
 			end,
 		})
 	end, bufopts)
+	vim.lsp.inlay_hint.enable(true)
 end
 
 -- Configure each language
