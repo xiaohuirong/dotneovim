@@ -4,6 +4,24 @@ if not is_ok then
 	return
 end
 
+-- https://catppuccin.com/palette
+-- https://github.com/mfussenegger/nvim-dap/discussions/355#discussioncomment-4425804
+vim.api.nvim_set_hl(0, "dap_red", { fg = "#d20f39" })
+vim.api.nvim_set_hl(0, "dap_blue", { fg = "#1e66f5" })
+vim.api.nvim_set_hl(0, "dap_green", { fg = "#40a02b" })
+vim.api.nvim_set_hl(0, "dap_yellow", { fg = "#df8e1d" })
+vim.api.nvim_set_hl(0, "dap_orange", { fg = "#fe640b" })
+
+-- if linehl set to such DapBreakpoint, the text will have color
+vim.fn.sign_define("DapBreakpoint", { text = "󰄯", texthl = "dap_orange", linehl = "", numhl = "DapBreakpoint" })
+vim.fn.sign_define(
+	"DapBreakpointCondition",
+	{ text = "󰟃", texthl = "dap_blue", linehl = "", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "dap_red", linehl = "", numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapLogPoint", { text = "", texthl = "dap_green", linehl = "", numhl = "DapLogPoint" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "dap_green", linehl = "", numhl = "DapStopped" })
+
 dap.adapters.gdb = {
 	type = "executable",
 	command = "gdb",

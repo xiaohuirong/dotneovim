@@ -42,5 +42,5 @@ dapui.setup({
 	opts,
 })
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open({})
+	dapui.open({ reset = true })
 end

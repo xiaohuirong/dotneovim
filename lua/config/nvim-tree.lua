@@ -107,4 +107,13 @@ nvim_tree.setup({
 	diagnostics = {
 		enable = true,
 	},
+	actions = {
+		open_file = {
+			window_picker = {
+				exclude = {
+					filetype = { "dapui_watches", "dapui_stacks", "dapui_breakpoints", "dapui_scopes", "dap-repl" },
+				},
+			},
+		},
+	},
 })

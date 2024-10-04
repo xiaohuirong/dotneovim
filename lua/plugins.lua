@@ -44,6 +44,8 @@ require("lazy").setup({
 	},
 
 	"tanvirtin/monokai.nvim",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
 	-- Better UI
 	-- Run `:checkhealth noice` to check for common issues
 	{
@@ -58,7 +60,7 @@ require("lazy").setup({
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			-- "rcarriga/nvim-notify",
+			"rcarriga/nvim-notify",
 		},
 	},
 
@@ -273,7 +275,7 @@ require("lazy").setup({
 		dependencies = { "nvim-neotest/nvim-nio" },
         -- stylua: ignore
         keys = {
-          { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
+          { "<leader>du", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI" },
           { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
         },
 		opts = {},
