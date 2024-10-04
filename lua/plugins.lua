@@ -283,4 +283,11 @@ require("lazy").setup({
 			require("config.nvim-dap-ui")
 		end,
 	},
+
+	-- https://github.com/norcalli/nvim-colorizer.lua/issues/102
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = "BufEnter",
+		opts = { "*" },
+	},
 })
