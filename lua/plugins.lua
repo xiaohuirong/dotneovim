@@ -262,6 +262,7 @@ require("lazy").setup({
             { "<leader>ds", function() require("dap").session() end, desc = "Session" },
             { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
             { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+            { "<leader>dF", function() os.execute("pkill alacritty") end, desc = "Kill All Alacritty" },
             { "<leader>df", function()
                 if require('dap').defaults.fallback.force_external_terminal then
                     require('dap').defaults.fallback.force_external_terminal = false
