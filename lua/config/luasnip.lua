@@ -3,9 +3,10 @@ if not is_ok then
 	return
 end
 
-vim.keymap.set({ "i" }, "<C-K>", function()
-	ls.expand()
-end, { silent = true })
+-- https://github.com/L3MON4D3/LuaSnip
+-- vim.keymap.set({ "i" }, "<C-K>", function()
+-- 	ls.expand()
+-- end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<C-L>", function()
 	ls.jump(1)
 end, { silent = true })
