@@ -262,6 +262,15 @@ require("lazy").setup({
             { "<leader>ds", function() require("dap").session() end, desc = "Session" },
             { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
             { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+            { "<leader>df", function()
+                if require('dap').defaults.fallback.force_external_terminal then
+                    require('dap').defaults.fallback.force_external_terminal = false
+                    print("External terminal: OFF")
+                else
+                    require('dap').defaults.fallback.force_external_terminal = true
+                    print("External terminal: ON")
+                end
+            end, desc = "Toggle External Terminal" },
           },
 
 		config = function()

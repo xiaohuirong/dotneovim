@@ -22,10 +22,12 @@ vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "dap_red", 
 vim.fn.sign_define("DapLogPoint", { text = "", texthl = "dap_green", linehl = "", numhl = "DapLogPoint" })
 vim.fn.sign_define("DapStopped", { text = "", texthl = "dap_green", linehl = "", numhl = "DapStopped" })
 
+-- https://github.com/mfussenegger/nvim-dap/raw/refs/heads/master/doc/dap.txt
 dap.defaults.fallback.external_terminal = {
 	command = "/usr/bin/alacritty",
-	args = { "-e" },
+	args = { "--hold", "-e" },
 }
+-- dap.defaults.fallback.force_external_terminal = true
 
 dap.adapters.gdb = {
 	type = "executable",
@@ -38,7 +40,6 @@ local gdb_config = {
 		name = "Launch",
 		type = "gdb",
 		request = "launch",
-		console = "integratedTerminal",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
@@ -70,9 +71,45 @@ local gdb_config = {
 	},
 }
 
-dap.configurations.cpp = gdb_config
-dap.configurations.c = gdb_config
-dap.configurations.rust = gdb_config
+dap.adapters.cppdbg = {
+	id = "cppdbg",
+	type = "executable",
+	command = "/usr/bin/cppdbg",
+}
+
+local cpptools = {
+	{
+		name = "Launch file",
+		type = "cppdbg",
+		request = "launch",
+		console = "externalTerminal",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopAtEntry = true,
+	},
+	{
+		name = "Attach to gdbserver :1234",
+		type = "cppdbg",
+		request = "launch",
+		MIMode = "gdb",
+		miDebuggerServerAddress = "localhost:1234",
+		miDebuggerPath = "/usr/bin/gdb",
+		cwd = "${workspaceFolder}",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+	},
+}
+
+-- dap.configurations.cpp = gdb_config
+-- dap.configurations.c = gdb_config
+-- dap.configurations.rust = gdb_config
+
+dap.configurations.cpp = cpptools
+dap.configurations.c = cpptools
+dap.configurations.rust = cpptools
 
 dap.adapters.python = function(cb, config)
 	if config.request == "attach" then
@@ -110,8 +147,8 @@ dap.configurations.python = {
 		-- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
 		program = "${file}", -- This configuration will launch the current file if used.
-		-- console = "integratedTerminal",
-		console = "externalTerminal",
+		console = "integratedTerminal",
+		-- console = "externalTerminal",
 
 		pythonPath = function()
 			-- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
@@ -146,7 +183,7 @@ dap.configurations.sh = {
 		pathPkill = "pkill",
 		args = {},
 		env = {},
-		-- terminalKind = "integrated",
-		terminalKind = "external",
+		terminalKind = "integrated",
+		-- terminalKind = "external",
 	},
 }
