@@ -110,6 +110,9 @@ dap.configurations.python = {
 		-- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
 		program = "${file}", -- This configuration will launch the current file if used.
+		-- console = "integratedTerminal",
+		console = "externalTerminal",
+
 		pythonPath = function()
 			-- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
 			-- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
