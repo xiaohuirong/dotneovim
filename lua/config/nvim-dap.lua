@@ -22,10 +22,15 @@ vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "dap_red", 
 vim.fn.sign_define("DapLogPoint", { text = "", texthl = "dap_green", linehl = "", numhl = "DapLogPoint" })
 vim.fn.sign_define("DapStopped", { text = "", texthl = "dap_green", linehl = "", numhl = "DapStopped" })
 
+dap.defaults.fallback.external_terminal = {
+	command = "/usr/bin/alacritty",
+	args = { "-e" },
+}
+
 dap.adapters.gdb = {
 	type = "executable",
 	command = "gdb",
-	args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+	args = { "-q", "--interpreter=dap", "--eval-command", "set print pretty on" },
 }
 
 local gdb_config = {
@@ -33,6 +38,7 @@ local gdb_config = {
 		name = "Launch",
 		type = "gdb",
 		request = "launch",
+		console = "integratedTerminal",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
