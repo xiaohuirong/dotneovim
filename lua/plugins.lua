@@ -300,4 +300,21 @@ require("lazy").setup({
 		event = "BufEnter",
 		opts = { "*" },
 	},
+
+    -- for translate
+	{
+		"JuanZoran/Trans.nvim",
+		build = function()
+			require("Trans").install()
+		end,
+		keys = {
+			{ "<leader>tw", mode = { "n", "x" }, "<Cmd>Translate<CR>", desc = "󰊿 Translate" },
+			{ "<leader>tr", mode = { "n", "x" }, "<Cmd>TransPlay<CR>", desc = " Auto Play" },
+			{ "<leader>ti", "<Cmd>TranslateInput<CR>", desc = "󰊿 Translate From Input" },
+		},
+		dependencies = { "kkharji/sqlite.lua" },
+		config = function()
+			require("config.trans")
+		end,
+	},
 })
