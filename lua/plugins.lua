@@ -301,7 +301,7 @@ require("lazy").setup({
 		opts = { "*" },
 	},
 
-    -- for translate
+	-- for translate
 	{
 		"JuanZoran/Trans.nvim",
 		build = function()
@@ -315,6 +315,14 @@ require("lazy").setup({
 		dependencies = { "kkharji/sqlite.lua" },
 		config = function()
 			require("config.trans")
+		end,
+	},
+
+	-- Minimal configuration
+	{
+		"David-Kunz/gen.nvim",
+		config = function()
+			require("config.gen")
 		end,
 	},
 })
