@@ -62,6 +62,24 @@ require("lazy").setup({
 			--   If not available, we use `mini` as the fallback
 			-- "rcarriga/nvim-notify",
 		},
+		config = function()
+			require("config.noice")
+		end,
+	},
+	-- https://github.com/folke/noice.nvim/issues/938#issuecomment-2404513963
+	{
+		"dapetcu21/nvim-notify",
+		branch = "slide-out",
+
+		config = function()
+			local notify = require("notify")
+
+			notify.setup({
+				render = "wrapped-compact",
+				stages = "slide_out", -- <==== This is the workaround
+			})
+			vim.notify = notify
+		end,
 	},
 
 	"williamboman/mason.nvim",
