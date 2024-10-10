@@ -116,4 +116,7 @@ nvim_tree.setup({
 			},
 		},
 	},
+	view = {
+		cursorline = false,
+	},
 })

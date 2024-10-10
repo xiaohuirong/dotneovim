@@ -33,3 +33,6 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Undo
 vim.opt.undofile = true
+
+-- let the cursorline no another color
+vim.o.cursorlineopt = "number"
