@@ -26,7 +26,7 @@ mason_null_ls.setup({
 		"clang-format",
 		"shellharden",
 		"shfmt",
-        "cmake_format",
+		"cmake_format",
 	},
 	-- Run `require("null-ls").setup`.
 	-- Will automatically install masons tools based on selected sources in `null-ls`.
