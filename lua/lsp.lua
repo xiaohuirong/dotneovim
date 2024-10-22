@@ -10,7 +10,7 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
 	-- A list of servers to automatically install if they're not already installed
-	ensure_installed = { "pylsp", "lua_ls", "bashls" },
+	ensure_installed = { "pylsp", "lua_ls", "bashls", "cmake", "mesonlsp"},
 })
 
 -- Set different settings for different languages' LSP
@@ -107,3 +107,10 @@ lspconfig.bashls.setup({
 	on_attach = on_attach,
 })
 -- require'lspconfig'.clangd.setup{on_attach = on_attach,}
+
+lspconfig.cmake.setup({
+	on_attach = on_attach,
+})
+lspconfig.mesonlsp.setup({
+	on_attach = on_attach,
+})

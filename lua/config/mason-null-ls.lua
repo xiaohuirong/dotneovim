@@ -26,6 +26,7 @@ mason_null_ls.setup({
 		"clang-format",
 		"shellharden",
 		"shfmt",
+        "cmake_format",
 	},
 	-- Run `require("null-ls").setup`.
 	-- Will automatically install masons tools based on selected sources in `null-ls`.
@@ -57,6 +58,9 @@ mason_null_ls.setup({
 		end,
 		clangformat = function(source_name, methods)
 			null_ls.register(null_ls.builtins.formatting.clang_format)
+		end,
+		cmakeformat = function(source_name, methods)
+			null_ls.register(null_ls.builtins.formatting.cmake_format)
 		end,
 		ocamlformat = function(source_name, methods)
 			null_ls.register(null_ls.builtins.formatting.ocamlformat.with({
