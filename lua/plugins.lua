@@ -365,4 +365,13 @@ require("lazy").setup({
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
 	},
+
+	-- Code folding
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
+		config = function()
+			require("config.ufo")
+		end,
+	},
 })
