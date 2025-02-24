@@ -36,3 +36,11 @@ vim.opt.undofile = true
 
 -- let the cursorline no another color
 vim.o.cursorlineopt = "number"
+
+-- set cpp commentstring // not /**/
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cpp",
+	callback = function()
+		vim.bo.commentstring = "// %s"
+	end,
+})
