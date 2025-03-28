@@ -248,6 +248,14 @@ require("lazy").setup({
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
 	},
 
+	{
+		"lervag/vimtex",
+		lazy = false, -- we don't want to lazy load VimTeX
+		config = function()
+			require("config.vimtex")
+		end,
+	},
+
 	-- http://www.lazyvim.org/extras/dap/core
 	-- for debugger
 	{
@@ -375,7 +383,7 @@ require("lazy").setup({
 		end,
 	},
 
-    -- markerdown preview in browser
+	-- markerdown preview in browser
 	{
 		"toppair/peek.nvim",
 		event = { "VeryLazy" },

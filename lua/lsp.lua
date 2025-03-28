@@ -10,11 +10,11 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
 	-- A list of servers to automatically install if they're not already installed
-	ensure_installed = { "pylsp", "lua_ls", "bashls", "cmake", "mesonlsp" },
+	ensure_installed = { "lua_ls", "bashls", "cmake", "mesonlsp" },
 })
 
 -- Set different settings for different languages' LSP
--- LSP list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- LSP list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- How to use setup({}): https://github.com/neovim/nvim-lspconfig/wiki/Understanding-setup-%7B%7D
 --     - the settings table is sent to the LSP
 --     - on_attach: a lua callback function to run after LSP atteches to a given buffer
@@ -54,9 +54,9 @@ local on_attach = function(client, bufnr)
 		vim.lsp.buf.format({
 			async = true,
 			-- Only request null-ls for formatting
-			filter = function(client)
-				return client.name == "null-ls" or client.name == "rust_analyzer"
-			end,
+			-- filter = function(client)
+			-- 	return client.name == "null-ls" or client.name == "rust_analyzer"
+			-- end,
 		})
 	end, bufopts)
 	vim.lsp.inlay_hint.enable(true)
@@ -122,4 +122,15 @@ lspconfig.cmake.setup({
 })
 lspconfig.mesonlsp.setup({
 	on_attach = on_attach,
+})
+
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#texlab
+lspconfig.texlab.setup({
+	on_attach = on_attach,
+	settings = {
+		texlab = {
+			-- latexFormatter = "latexindent",
+			latexFormatter = "tex-fmt",
+		},
+	},
 })
