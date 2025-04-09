@@ -14,7 +14,9 @@ require("telescope").setup({
 	defaults = {
 		layout_strategy = "vertical",
 		layout_config = {
-			preview_height = 0.65,
+			vertical = { -- 只在 vertical 里设置 preview_height
+				preview_height = 0.65,
+			},
 		},
 	},
 	extensions = {
