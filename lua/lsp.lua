@@ -110,6 +110,15 @@ lspconfig.rust_analyzer.setup({
 
 lspconfig.clangd.setup({
 	on_attach = on_attach,
+	filetypes = {
+		"c",
+		"cpp",
+		"tpp",
+		"objc",
+		"objcpp",
+		"cuda",
+		"proto",
+	},
 })
 
 lspconfig.bashls.setup({
